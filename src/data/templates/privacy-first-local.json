@@ -1,0 +1,46 @@
+{
+  "name": "Privacy-First Local Setup",
+  "version": "1.0.0",
+  "description": "Ollama-based local model with no cloud APIs for maximum privacy",
+  "channel": {
+    "type": "telegram",
+    "config": {
+      "bot_token": "YOUR_TELEGRAM_BOT_TOKEN"
+    }
+  },
+  "ai": {
+    "provider": "ollama",
+    "model": "llama3.1:8b",
+    "base_url": "http://localhost:11434",
+    "system_prompt": "You are a private, local AI assistant. All processing happens on the user's own hardware — no data leaves the local network. Be helpful, concise, and transparent about your capabilities and limitations.",
+    "max_tokens": 2048,
+    "temperature": 0.7
+  },
+  "skills": [
+    {
+      "name": "note_taking",
+      "enabled": true,
+      "config": {
+        "storage": "local",
+        "encryption": true,
+        "encryption_key_path": "./encryption.key"
+      }
+    },
+    {
+      "name": "file_search",
+      "enabled": true,
+      "config": {
+        "directories": ["./documents"],
+        "max_file_size_mb": 10
+      }
+    }
+  ],
+  "settings": {
+    "language": "auto",
+    "max_conversation_history": 15,
+    "response_timeout": 120,
+    "telemetry": false,
+    "data_retention": "local_only",
+    "log_level": "warn"
+  }
+}

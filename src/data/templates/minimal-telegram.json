@@ -1,0 +1,24 @@
+{
+  "name": "Minimal Telegram Bot",
+  "version": "1.0.0",
+  "description": "Simplest possible OpenClaw setup — single agent on Telegram with Claude Sonnet",
+  "channel": {
+    "type": "telegram",
+    "config": {
+      "bot_token": "YOUR_TELEGRAM_BOT_TOKEN"
+    }
+  },
+  "ai": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-20250514",
+    "api_key": "YOUR_ANTHROPIC_API_KEY",
+    "system_prompt": "You are a helpful AI assistant on Telegram. Be concise, friendly, and accurate. Respond in the user's language.",
+    "max_tokens": 1024,
+    "temperature": 0.7
+  },
+  "settings": {
+    "language": "auto",
+    "max_conversation_history": 10,
+    "response_timeout": 30
+  }
+}

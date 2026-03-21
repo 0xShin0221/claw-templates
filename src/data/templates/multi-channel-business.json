@@ -1,0 +1,80 @@
+{
+  "name": "Multi-Channel Business",
+  "version": "1.0.0",
+  "description": "Sales and marketing agents across Discord and Telegram for business operations",
+  "channels": [
+    {
+      "type": "discord",
+      "config": {
+        "bot_token": "YOUR_DISCORD_BOT_TOKEN",
+        "guild_id": "YOUR_DISCORD_GUILD_ID"
+      }
+    },
+    {
+      "type": "telegram",
+      "config": {
+        "bot_token": "YOUR_TELEGRAM_BOT_TOKEN"
+      }
+    }
+  ],
+  "agents": [
+    {
+      "name": "sales_agent",
+      "role": "sales",
+      "channels": ["discord", "telegram"],
+      "ai": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "api_key": "YOUR_ANTHROPIC_API_KEY",
+        "system_prompt": "You are a professional sales agent. Qualify leads, answer product questions, schedule demos, and follow up with prospects. Be helpful and professional, never pushy. Track conversations and hand off to humans when appropriate.",
+        "max_tokens": 2048,
+        "temperature": 0.5
+      }
+    },
+    {
+      "name": "marketing_agent",
+      "role": "marketing",
+      "channels": ["discord", "telegram"],
+      "ai": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "api_key": "YOUR_ANTHROPIC_API_KEY",
+        "system_prompt": "You are a marketing assistant. Help create social media posts, draft newsletters, analyze campaign performance, and engage with community members. Be creative, on-brand, and data-driven.",
+        "max_tokens": 2048,
+        "temperature": 0.8
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "crm_integration",
+      "enabled": true,
+      "config": {
+        "provider": "notion",
+        "api_key": "YOUR_NOTION_API_KEY",
+        "database_id": "YOUR_NOTION_DATABASE_ID"
+      }
+    },
+    {
+      "name": "email_draft",
+      "enabled": true,
+      "config": {
+        "templates_path": "./email_templates"
+      }
+    },
+    {
+      "name": "analytics",
+      "enabled": true,
+      "config": {
+        "track_conversations": true,
+        "track_conversions": true
+      }
+    }
+  ],
+  "settings": {
+    "language": "en",
+    "max_conversation_history": 30,
+    "response_timeout": 45,
+    "agent_routing": "auto"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Discord Dev Team",
+  "version": "1.0.0",
+  "description": "Multi-agent dev team on Discord with an orchestrator and a coding agent",
+  "channel": {
+    "type": "discord",
+    "config": {
+      "bot_token": "YOUR_DISCORD_BOT_TOKEN",
+      "guild_id": "YOUR_DISCORD_GUILD_ID",
+      "command_prefix": "!"
+    }
+  },
+  "agents": [
+    {
+      "name": "orchestrator",
+      "role": "main",
+      "ai": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "api_key": "YOUR_ANTHROPIC_API_KEY",
+        "system_prompt": "You are the lead developer agent. You break down tasks, coordinate with the coding agent, review code, and explain technical concepts. When a user asks for code, delegate to the coding agent. Summarize results clearly.",
+        "max_tokens": 4096,
+        "temperature": 0.5
+      }
+    },
+    {
+      "name": "coder",
+      "role": "specialist",
+      "ai": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "api_key": "YOUR_ANTHROPIC_API_KEY",
+        "system_prompt": "You are a coding specialist agent. You write, debug, and refactor code. Respond with well-commented code blocks. Always specify the language. Follow best practices and keep solutions concise.",
+        "max_tokens": 4096,
+        "temperature": 0.3
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "code_execution",
+      "enabled": true,
+      "config": {
+        "sandbox": true,
+        "timeout": 30,
+        "languages": ["python", "javascript", "typescript"]
+      }
+    },
+    {
+      "name": "github_integration",
+      "enabled": false,
+      "config": {
+        "token": "YOUR_GITHUB_TOKEN",
+        "default_repo": "your-org/your-repo"
+      }
+    }
+  ],
+  "settings": {
+    "language": "en",
+    "max_conversation_history": 30,
+    "response_timeout": 60,
+    "agent_handoff": true
+  }
+}

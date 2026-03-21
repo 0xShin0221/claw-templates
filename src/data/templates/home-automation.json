@@ -1,0 +1,85 @@
+{
+  "name": "Home Automation Controller",
+  "version": "1.0.0",
+  "description": "Smart home controller on WhatsApp and Telegram with device management skills",
+  "channels": [
+    {
+      "type": "whatsapp",
+      "config": {
+        "phone_number_id": "YOUR_WHATSAPP_PHONE_NUMBER_ID",
+        "access_token": "YOUR_WHATSAPP_ACCESS_TOKEN",
+        "verify_token": "YOUR_WHATSAPP_VERIFY_TOKEN"
+      }
+    },
+    {
+      "type": "telegram",
+      "config": {
+        "bot_token": "YOUR_TELEGRAM_BOT_TOKEN"
+      }
+    }
+  ],
+  "ai": {
+    "provider": "anthropic",
+    "model": "claude-haiku-4-5-20251001",
+    "api_key": "YOUR_ANTHROPIC_API_KEY",
+    "system_prompt": "You are a smart home controller. You manage lights, thermostat, security cameras, and other IoT devices. Respond quickly and concisely. Confirm actions before executing destructive operations (e.g., unlocking doors). Support natural language commands like 'turn off living room lights' or 'set temperature to 72'.",
+    "max_tokens": 512,
+    "temperature": 0.2
+  },
+  "skills": [
+    {
+      "name": "home_assistant",
+      "enabled": true,
+      "config": {
+        "url": "YOUR_HOME_ASSISTANT_URL",
+        "access_token": "YOUR_HOME_ASSISTANT_TOKEN"
+      }
+    },
+    {
+      "name": "device_control",
+      "enabled": true,
+      "config": {
+        "devices": [
+          {
+            "name": "Living Room Lights",
+            "type": "light",
+            "id": "light.living_room"
+          },
+          {
+            "name": "Bedroom Lights",
+            "type": "light",
+            "id": "light.bedroom"
+          },
+          {
+            "name": "Thermostat",
+            "type": "climate",
+            "id": "climate.main"
+          },
+          {
+            "name": "Front Door Lock",
+            "type": "lock",
+            "id": "lock.front_door"
+          },
+          {
+            "name": "Security Camera",
+            "type": "camera",
+            "id": "camera.front_yard"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scheduling",
+      "enabled": true,
+      "config": {
+        "automations": true,
+        "timezone": "UTC"
+      }
+    }
+  ],
+  "settings": {
+    "language": "auto",
+    "max_conversation_history": 5,
+    "response_timeout": 10
+  }
+}

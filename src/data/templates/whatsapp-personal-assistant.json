@@ -1,0 +1,62 @@
+{
+  "name": "WhatsApp Personal Assistant",
+  "version": "1.0.0",
+  "description": "Personal assistant on WhatsApp with reminders, web search, and calendar",
+  "channel": {
+    "type": "whatsapp",
+    "config": {
+      "phone_number_id": "YOUR_WHATSAPP_PHONE_NUMBER_ID",
+      "access_token": "YOUR_WHATSAPP_ACCESS_TOKEN",
+      "verify_token": "YOUR_WHATSAPP_VERIFY_TOKEN",
+      "webhook_url": "YOUR_WEBHOOK_URL"
+    }
+  },
+  "ai": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-20250514",
+    "api_key": "YOUR_ANTHROPIC_API_KEY",
+    "system_prompt": "You are a personal assistant on WhatsApp. Help with scheduling, reminders, quick research, and everyday tasks. Be concise — WhatsApp messages should be short and scannable. Use bullet points and emojis sparingly for clarity.",
+    "max_tokens": 2048,
+    "temperature": 0.7
+  },
+  "skills": [
+    {
+      "name": "reminder",
+      "enabled": true,
+      "config": {
+        "max_reminders": 100,
+        "timezone": "UTC"
+      }
+    },
+    {
+      "name": "web_search",
+      "enabled": true,
+      "config": {
+        "provider": "tavily",
+        "api_key": "YOUR_TAVILY_API_KEY",
+        "max_results": 5
+      }
+    },
+    {
+      "name": "calendar",
+      "enabled": true,
+      "config": {
+        "provider": "google",
+        "credentials_path": "./google_credentials.json",
+        "calendar_id": "primary"
+      }
+    },
+    {
+      "name": "note_taking",
+      "enabled": true,
+      "config": {
+        "storage": "local"
+      }
+    }
+  ],
+  "settings": {
+    "language": "auto",
+    "max_conversation_history": 20,
+    "response_timeout": 30
+  }
+}
