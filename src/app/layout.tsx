@@ -43,7 +43,7 @@ export default function RootLayout({
             <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
               <a href="/" className="flex items-center gap-2 font-semibold text-lg">
                 <span>🦞</span>
-                <span>ClawConfigs</span>
+                <span>ClawTemplates</span>
               </a>
               <a
                 href="https://github.com/0xShin0221/claw-templates"
