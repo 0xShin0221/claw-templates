@@ -46,7 +46,7 @@ export default function RootLayout({
                 <span>ClawConfigs</span>
               </a>
               <a
-                href="https://github.com/digdatech/claw-templates"
+                href="https://github.com/0xShin0221/claw-templates"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
@@ -88,7 +88,7 @@ export default function RootLayout({
                   Need a custom setup? Contact us
                 </a>
                 <a
-                  href="https://github.com/digdatech/claw-templates"
+                  href="https://github.com/0xShin0221/claw-templates"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-zinc-300 transition-colors"

@@ -67,7 +67,7 @@ export default function TemplatePage({
             description: template.description,
             programmingLanguage: "JSON",
             codeRepository:
-              "https://github.com/digdatech/claw-templates",
+              "https://github.com/0xShin0221/claw-templates",
           }),
         }}
       />
